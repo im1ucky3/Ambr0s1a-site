@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1786355362751,
+      "tag": "0000_new_madame_web",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1786357204536,
+      "tag": "0001_sudden_morbius",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1786368711429,
+      "tag": "0002_graceful_mandarin",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1786370855029,
+      "tag": "0003_absent_archangel",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1786373115806,
+      "tag": "0004_eminent_dreaming_celestial",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1786426853610,
+      "tag": "0005_daily_zodiak",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1786429333273,
+      "tag": "0006_round_boomerang",
+      "breakpoints": true
+    }
+  ]
+}
