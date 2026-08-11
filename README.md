@@ -1,22 +1,26 @@
-# Ambr0s1a! Team Hub
+<p align="center">
+  <img src="public/ambr0s1a-logo.jpg" alt="Ambr0s1a! logo" width="420">
+</p>
 
-Робочий портал CTF-команди: окремі середовища для змагань, активні та завершені таски, ролі учасників, сповіщення, архів статистики, CTFtime та інтеграція з CTFd.
+<h1 align="center">Ambr0s1a! Team Hub</h1>
 
-## Основні можливості
+A workspace and public information portal for the Ambr0s1a! CTF team. It provides isolated competition workspaces, task tracking, team roles, notifications, archived statistics, CTFtime data, and CTFd integration.
 
-- акаунти учасників через Supabase Auth, запрошення створює капітан;
-- кілька одночасних CTF-середовищ, замороження та архівація;
-- персоналізований огляд із віджетами;
-- активні, solved, unsolved і доступні для повторного взяття таски;
-- синхронізація каталогу тасок, балів і розв'язків із CTFd;
-- фільтри CTFd за категоріями та взяття таски одним кліком;
-- CTFtime: майбутні події, минулі події та лідерборди;
-- сповіщення й відображення часу в `Europe/Kyiv`;
-- статистика та звіти за завершеними CTF.
+## Features
 
-## Налаштування
+- Team accounts powered by Supabase Auth with captain-managed invitations
+- Multiple simultaneous CTF workspaces with freeze and archive controls
+- Customizable personal dashboards and widgets
+- Active, solved, unsolved, and retryable task tracking
+- CTFd challenge, category, score, and solve synchronization
+- Category filters and one-click challenge claiming
+- CTFtime upcoming events, past events, and leaderboards
+- Notifications and date/time display in `Europe/Kyiv`
+- Archived CTF statistics and report generation
 
-Потрібні Node.js `>=22.13.0`, Cloudflare D1/R2 та проєкт Supabase. Скопіюйте `.env.example` у локальний `.env` і заповніть:
+## Configuration
+
+Requires Node.js `>=22.13.0`, Cloudflare D1/R2, and a Supabase project. Copy `.env.example` to a local `.env` file and configure:
 
 ```env
 SUPABASE_URL=https://your-project.supabase.co
@@ -25,18 +29,18 @@ SUPABASE_SECRET_KEY=your-server-only-secret-key
 CTFD_TOKEN_SECRET=optional-separate-secret-for-encrypting-ctfd-tokens
 ```
 
-`SUPABASE_SECRET_KEY` і `CTFD_TOKEN_SECRET` є серверними секретами — не додавайте `.env` до Git. Якщо `CTFD_TOKEN_SECRET` не задано, для шифрування CTFd-токенів використовується серверний ключ Supabase.
+`SUPABASE_SECRET_KEY` and `CTFD_TOKEN_SECRET` are server-side secrets. Never commit a local `.env` file. If `CTFD_TOKEN_SECRET` is not set, the Supabase server key is used to encrypt stored CTFd tokens.
 
-## Підключення CTFd
+## CTFd integration
 
-1. Капітан відкриває потрібне CTF-середовище.
-2. У блоці CTFd вводить HTTPS-адресу інстансу та API-токен CTFd.
-3. Після підключення сайт імпортує всі доступні таски, категорії, бали, кількість розв'язків і статус команди.
-4. Кнопка «Синхронізувати» оновлює дані, а «Розсинхронізувати» видаляє прив'язку й зашифрований токен.
+1. The captain opens the required CTF workspace.
+2. In the CTFd panel, they enter the instance HTTPS URL and an API token.
+3. The site imports all available challenges, categories, points, solve counts, and team status.
+4. **Synchronize** refreshes the data, while **Disconnect** removes the integration and encrypted token.
 
-Токен зберігається лише на сервері у зашифрованому вигляді та не повертається браузеру.
+CTFd API tokens are encrypted on the server and are never returned to the browser.
 
-## Команди
+## Development
 
 ```bash
 npm run install:ci
@@ -46,4 +50,4 @@ npm test
 npm run db:generate
 ```
 
-Схема D1 розташована в `db/schema.ts`, а міграції — у `drizzle/`.
+The D1 schema is located in `db/schema.ts`, and database migrations are stored in `drizzle/`.
